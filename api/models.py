@@ -51,6 +51,10 @@ class LibraryBranch(models.Model):
 
 class LibraryMember(models.Model):
     name = models.CharField(50)
+    registered_branch = models.ManyToManyField(
+        LibraryBranch,
+        related_name='members'
+    )
     books_issued = models.ManyToManyField(
         Book,
         through='IssuedBook',
