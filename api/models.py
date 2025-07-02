@@ -28,7 +28,7 @@ class Book(models.Model):
     genre = models.ForeignKey(
         Genre,
         on_delete=models.CASCADE,
-        related_name='books'
+        related_name='books_in_genre'
     )
     copies_in_stock = models.PositiveIntegerField(default=1)
     available_copies = models.PositiveIntegerField(default=1)
@@ -69,12 +69,12 @@ class IssuedBook(models.Model):
     member = models.ForeignKey(
         LibraryMember,
         on_delete=models.CASCADE,
-        related_name='books'
+        related_name='issued_books'
     )
     book = models.ForeignKey(
         Book,
         on_delete=models.CASCADE,
-        related_name='members'
+        related_name='issued_records'
     )
     issued_on = models.DateField(auto_now=True)
 
