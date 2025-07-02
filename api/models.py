@@ -18,7 +18,7 @@ class Genre(models.Model):
     
 
 class Book(models.Model):
-    book_id = models.CharField(primary_key=True, default=uuid4)
+    book_id = models.UUIDField(primary_key=True, default=uuid4)
     title = models.CharField(max_length=100)
     author = models.ForeignKey(
         Author,
